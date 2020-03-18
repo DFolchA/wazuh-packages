@@ -216,6 +216,7 @@ rm -f %{_localstatedir}/ossec/var/db/global.db* || true
 rm -f %{_localstatedir}/ossec/var/db/cluster.db* || true
 rm -f %{_localstatedir}/ossec/var/db/.profile.db* || true
 rm -f %{_localstatedir}/ossec/var/db/agents/* || true
+
 # Remove Vuln-detector database
 rm -f %{_localstatedir}/ossec/queue/vulnerabilities/cve.db || true
 
@@ -812,6 +813,8 @@ rm -fr %{buildroot}
 %dir %attr(770, ossec, ossec) %{_localstatedir}/ossec/queue/cluster
 %dir %attr(750, ossec, ossec) %{_localstatedir}/ossec/queue/db
 %dir %attr(750, ossec, ossec) %{_localstatedir}/ossec/queue/diff
+%dir %attr(750, ossec,ossec) %{_localstatedir}/ossec/queue/fim
+%dir %attr(750, ossec,ossec) %{_localstatedir}/ossec/queue/fim/db
 %dir %attr(750, ossec, ossec) %{_localstatedir}/ossec/queue/fts
 %dir %attr(770, ossecr, ossec) %{_localstatedir}/ossec/queue/rids
 %dir %attr(750, ossec, ossec) %{_localstatedir}/ossec/queue/rootcheck
@@ -912,6 +915,8 @@ rm -fr %{buildroot}
 %attr(750, root, ossec) %{_localstatedir}/ossec/wodles/azure/*
 %dir %attr(750, root, ossec) %{_localstatedir}/ossec/wodles/docker
 %attr(750, root, ossec) %{_localstatedir}/ossec/wodles/docker/*
+%dir %attr(750, root, ossec) %{_localstatedir}/ossec/wodles/gcloud
+%attr(750, root, ossec) %{_localstatedir}/ossec/wodles/gcloud/*
 %dir %attr(750, root, ossec) %{_localstatedir}/ossec/wodles/oscap
 %attr(750, root, ossec) %{_localstatedir}/ossec/wodles/oscap/oscap
 %attr(750, root, ossec) %{_localstatedir}/ossec/wodles/oscap/oscap.*
@@ -919,12 +924,13 @@ rm -fr %{buildroot}
 %dir %attr(750, root, ossec) %{_localstatedir}/ossec/wodles/oscap/content
 %attr(640, root, ossec) %{_localstatedir}/ossec/wodles/oscap/content/*
 
+
 %{_initrddir}/*
 
 %changelog
-* Thu Feb 24 2020 support <info@wazuh.com> - 3.11.4
+* Tue Jan 7 2020 support <info@wazuh.com> - 3.12.0
 - More info: https://documentation.wazuh.com/current/release-notes/
-* Wed Jan 22 2020 support <info@wazuh.com> - 3.11.3
+* Fri Apr 17 2020 support <info@wazuh.com> - 3.11.4
 - More info: https://documentation.wazuh.com/current/release-notes/
 * Tue Jan 7 2020 support <info@wazuh.com> - 3.11.2
 - More info: https://documentation.wazuh.com/current/release-notes/

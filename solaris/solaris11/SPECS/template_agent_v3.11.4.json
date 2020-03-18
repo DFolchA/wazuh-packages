@@ -1096,6 +1096,22 @@
         "type": "file",
         "user": "root"
     },
+    "/var/ossec/queue/fim": {
+        "class": "static",
+        "group": "ossec",
+        "mode": "0750",
+        "prot": "drwxr-x---",
+        "type": "directory",
+        "user": "ossec"
+    },
+    "/var/ossec/queue/fim/db": {
+        "class": "static",
+        "group": "ossec",
+        "mode": "0750",
+        "prot": "drwxr-x---",
+        "type": "directory",
+        "user": "ossec"
+    },
     "/var/ossec/queue/ossec": {
         "class": "static",
         "group": "ossec",
@@ -1253,6 +1269,14 @@
         "group": "ossec",
         "mode": "0640",
         "prot": "-rw-r-----",
+        "type": "file",
+        "user": "root"
+    },
+    "/var/ossec/ruleset/sca/cis_solaris11_rcl.yml": {
+        "class": "static",
+        "group": "ossec",
+        "mode": "0640",
+        "prot": "-rwxr-----",
         "type": "file",
         "user": "root"
     },
@@ -1480,6 +1504,46 @@
         "type": "file",
         "user": "root"
     },
+    "/var/ossec/wodles/gcloud": {
+        "class": "static",
+        "group": "ossec",
+        "mode": "0750",
+        "prot": "drwxr-x---",
+        "type": "directory",
+        "user": "root"
+    },
+    "/var/ossec/wodles/gcloud/gcloud": {
+        "class": "static",
+        "group": "ossec",
+        "mode": "0750",
+        "prot": "-rwxr-x---",
+        "type": "file",
+        "user": "root"
+    },
+    "/var/ossec/wodles/gcloud/gcloud.py": {
+        "class": "static",
+        "group": "ossec",
+        "mode": "0750",
+        "prot": "-rwxr-x---",
+        "type": "file",
+        "user": "root"
+    },
+    "/var/ossec/wodles/gcloud/integration.py": {
+        "class": "static",
+        "group": "ossec",
+        "mode": "0750",
+        "prot": "-rwxr-x---",
+        "type": "file",
+        "user": "root"
+    },
+    "/var/ossec/wodles/gcloud/tools.py": {
+        "class": "static",
+        "group": "ossec",
+        "mode": "0750",
+        "prot": "-rwxr-x---",
+        "type": "file",
+        "user": "root"
+    },
     "/var/ossec/wodles/oscap": {
         "class": "static",
         "group": "ossec",
@@ -1621,14 +1685,6 @@
         "group": "ossec",
         "mode": "0750",
         "prot": "-rwxr-x---",
-        "type": "file",
-        "user": "root"
-    },
-    "/var/ossec/ruleset/sca/cis_solaris11_rcl.yml": {
-        "class": "static",
-        "group": "ossec",
-        "mode": "0640",
-        "prot": "-rwxr-----",
         "type": "file",
         "user": "root"
     }

@@ -48,7 +48,8 @@ rm -fr %{buildroot}
 # Create the directories needed to install the wazuh-api
 mkdir -p %{_localstatedir}/ossec/{framework,logs}
 echo 'DIRECTORY="%{_localstatedir}/ossec"' > /etc/ossec-init.conf
-# Install the wazuh-api
+# Install Wazuh API with HTTPS disabled. It will be enabled in post installation
+DISABLE_HTTPS=Y \
 ./install_api.sh --no-service
 # Remove the framework directory
 rmdir %{_localstatedir}/ossec/framework
@@ -101,6 +102,20 @@ API_PATH_BACKUP="${RPM_BUILD_ROOT}%{_localstatedir}/ossec/~api"
 if [ -d ${API_PATH_BACKUP} ]; then
   cp -rfnp ${API_PATH_BACKUP}/configuration ${API_PATH_BACKUP_BACKUP}/configuration
   rm -rf ${API_PATH_BACKUP}
+fi
+
+# Generate and enable a new SSL certificate for clean installs
+if [ $1 = 1 ] && command -v openssl > /dev/null 2>&1; then
+  HTTPS="Y"
+  PASSWORD="wazuh"
+  COUNTRY="XX"
+  STATE="XX"
+  LOCALITY="XX"
+  ORG_NAME="XX"
+  ORG_UNIT="XX"
+  COMMON_NAME="XX"
+  . %{_localstatedir}/ossec/api/scripts/configure_api.sh
+  change_https > /dev/null 2>&1
 fi
 
 %preun
@@ -169,9 +184,9 @@ rm -fr %{buildroot}
 %attr(660, ossec, ossec) %ghost %{_localstatedir}/ossec/logs/api.log
 
 %changelog
-* Thu Jan 24 2020 support <info@wazuh.com> - 3.11.4
+* Tue Jan 7 2020 support <info@wazuh.com> - 3.12.0
 - More info: https://documentation.wazuh.com/current/release-notes/
-* Wed Jan 22 2020 support <info@wazuh.com> - 3.11.3
+* Fri Apr 17 2020 support <info@wazuh.com> - 3.11.4
 - More info: https://documentation.wazuh.com/current/release-notes/
 * Tue Jan 7 2020 support <info@wazuh.com> - 3.11.2
 - More info: https://documentation.wazuh.com/current/release-notes/
