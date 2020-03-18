@@ -231,6 +231,8 @@ rm -fr %{buildroot}
 %dir %attr(750,root,ossec) %{_localstatedir}/ossec/queue
 %dir %attr(770,ossec,ossec) %{_localstatedir}/ossec/queue/ossec
 %dir %attr(750,ossec,ossec) %{_localstatedir}/ossec/queue/diff
+%dir %attr(750,ossec,ossec) %{_localstatedir}/ossec/queue/fim
+%dir %attr(750,ossec,ossec) %{_localstatedir}/ossec/queue/fim/db
 %dir %attr(770,ossec,ossec) %{_localstatedir}/ossec/queue/alerts
 %dir %attr(750,ossec,ossec) %{_localstatedir}/ossec/queue/rids
 %dir %attr(750, ossec, ossec) %{_localstatedir}/ossec/ruleset/sca
@@ -253,12 +255,14 @@ rm -fr %{buildroot}
 %dir %attr(750,root,ossec) %{_localstatedir}/ossec/wodles
 %dir %attr(750,root,ossec) %{_localstatedir}/ossec/wodles/aws
 %attr(750,root,ossec) %{_localstatedir}/ossec/wodles/aws/*
+%dir %attr(750, root, ossec) %{_localstatedir}/ossec/wodles/gcloud
+%attr(750, root, ossec) %{_localstatedir}/ossec/wodles/gcloud/*
 
 
 %changelog
-* Wed Feb 24 2020 support <info@wazuh.com> - 3.11.4
+* Tue Jan 7 2020 support <info@wazuh.com> - 3.12.0
 - More info: https://documentation.wazuh.com/current/release-notes/
-* Wed Jan 22 2020 support <info@wazuh.com> - 3.11.3
+* Fri Apr 17 2020 support <info@wazuh.com> - 3.11.4
 - More info: https://documentation.wazuh.com/current/release-notes/
 * Tue Jan 7 2020 support <info@wazuh.com> - 3.11.2
 - More info: https://documentation.wazuh.com/current/release-notes/
